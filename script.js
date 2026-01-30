@@ -81,8 +81,8 @@ if (contactForm) {
         const formData = new FormData(contactForm);
 
         try {
-            // TODO: Replace 'YOUR_FORMSPREE_ID' with your actual Formspree form ID
-            const response = await fetch("https://formspree.io/f/YOUR_FORMSPREE_ID", {
+            // Formspree integration
+            const response = await fetch("https://formspree.io/f/mojwpvge", {
                 method: "POST",
                 body: formData,
                 headers: {
