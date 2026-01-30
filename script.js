@@ -68,27 +68,45 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Form submission handler
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            subject: formData.get('subject'),
-            message: formData.get('message')
-        };
 
-        // Here you would typically send the data to a server
-        // For now, we'll just show an alert
-        console.log('Form data:', data);
-        
-        // Show success message
-        alert('Thank you for your message! I\'ll get back to you soon.');
-        
-        // Reset form
-        contactForm.reset();
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+
+        // Show loading state
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        const formData = new FormData(contactForm);
+
+        try {
+            // TODO: Replace 'YOUR_FORMSPREE_ID' with your actual Formspree form ID
+            const response = await fetch("https://formspree.io/f/YOUR_FORMSPREE_ID", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                alert('Thank you for your message! I\'ll get back to you soon.');
+                contactForm.reset();
+            } else {
+                const data = await response.json();
+                if (Object.hasOwn(data, 'errors')) {
+                    alert(data.errors.map(error => error["message"]).join(", "));
+                } else {
+                    alert("Oops! There was a problem submitting your form");
+                }
+            }
+        } catch (error) {
+            alert("Oops! There was a problem submitting your form");
+        } finally {
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+        }
     });
 }
 
@@ -112,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const animateElements = document.querySelectorAll(
         '.timeline-item, .skill-category, .project-card, .contact-item, .about-text'
     );
-    
+
     animateElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -125,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function typeWriter(element, text, speed = 100) {
     let i = 0;
     element.textContent = '';
-    
+
     function type() {
         if (i < text.length) {
             element.textContent += text.charAt(i);
@@ -133,7 +151,7 @@ function typeWriter(element, text, speed = 100) {
             setTimeout(type, speed);
         }
     }
-    
+
     type();
 }
 
@@ -147,20 +165,22 @@ window.addEventListener('load', () => {
     }
 });
 
-// Add parallax effect to hero section
+// Add parallax effect to hero section (Optimized)
 window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
+    requestAnimationFrame(() => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+    });
 });
 
 // Add counter animation for stats
 function animateCounter(element, target, duration = 2000) {
     let start = 0;
     const increment = target / (duration / 16);
-    
+
     const timer = setInterval(() => {
         start += increment;
         if (start >= target) {
