@@ -1053,10 +1053,6 @@ section {
     .about-stats {
         grid-template-columns: 1fr;
     }
-    
-    .about-visual {
-        display: none;
-    }
 
     .timeline::before {
         left: 15px;
