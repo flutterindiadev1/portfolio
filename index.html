@@ -16,25 +16,40 @@
 </head>
 
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-brand">
                 <span class="brand-text">NR</span>
             </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <button class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-right-container">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#resume" class="nav-link">Resume</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="resume.pdf" download="Nitish_Rajguru_Resume.pdf" class="nav-download-cv-btn">Download CV</a></li>
+                </ul>
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -69,51 +84,55 @@
                         </a>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <div class="phone-mockup">
-                        <div class="phone-screen-mockup">
-                            <div class="app-screen-header">
-                                <h2>Nitish Rajguru</h2>
-                                <p>Mobile & Web Developer</p>
-                            </div>
-                            <div class="app-screen-content">
-                                <div class="app-card">
-                                    <div class="app-card-header">
-                                        <div class="app-card-icon">
-                                            <i class="fas fa-code"></i>
-                                        </div>
-                                        <div>
-                                            <div class="app-card-title">Flutter Developer</div>
-                                            <div class="app-card-subtitle">4+ Years Experience</div>
-                                        </div>
-                                    </div>
-                                    <p>Building scalable, performant mobile and web applications with Flutter,
-                                        specializing in enterprise-grade solutions and Fintech applications.</p>
-                                </div>
-                                <div class="app-card">
-                                    <div class="app-card-header">
-                                        <div class="app-card-icon"
-                                            style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
-                                            <i class="fas fa-mobile-alt"></i>
-                                        </div>
-                                        <div>
-                                            <div class="app-card-title">Cross-Platform</div>
-                                            <div class="app-card-subtitle">Android, iOS & Web</div>
-                                        </div>
-                                    </div>
-                                    <p>Expert in developing applications that run seamlessly across multiple platforms
-                                        with a single codebase.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Blueprint Ecosystem Parallax Section -->
+                <div class="hero-blueprint-container">
+                    <svg id="blueprintSvg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Connecting Grid Lines -->
+                        <line x1="200" y1="50" x2="200" y2="350" stroke="var(--border-color)" stroke-width="1.5" stroke-dasharray="4 4" />
+                        <line x1="50" y1="200" x2="350" y2="200" stroke="var(--border-color)" stroke-width="1.5" stroke-dasharray="4 4" />
+                        <circle cx="200" cy="200" r="100" stroke="var(--border-color)" stroke-dasharray="4 4" />
+                        
+                        <!-- Core Core pipeline glow paths -->
+                        <path id="pathWeb" d="M 200 200 L 200 70" class="pipeline-path" />
+                        <path id="pathAndroid" d="M 200 200 L 330 200" class="pipeline-path" />
+                        <path id="pathIos" d="M 200 200 L 200 330" class="pipeline-path" />
+                        <path id="pathMobile" d="M 200 200 L 70 200" class="pipeline-path" />
+
+                        <!-- Core Microcontroller Node -->
+                        <circle cx="200" cy="200" r="45" fill="rgba(0, 212, 255, 0.1)" stroke="var(--primary-color)" stroke-width="2" class="core-glow" />
+                        <circle cx="200" cy="200" r="30" fill="var(--bg-secondary)" stroke="var(--primary-color)" stroke-width="3" />
+                        <text x="200" y="205" text-anchor="middle" fill="var(--primary-color)" font-weight="bold" font-size="12" font-family="monospace">CORE</text>
+
+                        <!-- Platform Web Node -->
+                        <g class="platform-node platform-group" transform="translate(200, 70)">
+                            <circle cx="0" cy="0" r="24" />
+                            <text x="0" y="38" text-anchor="middle">WEB</text>
+                            <path d="M-8 -8 H8 V8 H-8 Z M-4 -4 H4 V4 H-4 Z" stroke="var(--primary-color)" stroke-width="1.5" fill="none" transform="translate(0, 0)" />
+                        </g>
+
+                        <!-- Platform Android Node -->
+                        <g class="platform-node platform-group" transform="translate(330, 200)">
+                            <circle cx="0" cy="0" r="24" />
+                            <text x="0" y="38" text-anchor="middle">ANDROID</text>
+                            <path d="M-8 -4 A8 8 0 0 1 8 -4 L8 6 H-8 Z" stroke="var(--accent-orange)" stroke-width="1.5" fill="none" />
+                        </g>
+
+                        <!-- Platform iOS Node -->
+                        <g class="platform-node platform-group" transform="translate(200, 330)">
+                            <circle cx="0" cy="0" r="24" />
+                            <text x="0" y="38" text-anchor="middle">IOS</text>
+                            <path d="M-6 -6 L6 6 M6 -6 L-6 6" stroke="var(--accent-purple)" stroke-width="2" />
+                        </g>
+
+                        <!-- Platform Mobile Node -->
+                        <g class="platform-node platform-group" transform="translate(70, 200)">
+                            <circle cx="0" cy="0" r="24" />
+                            <text x="0" y="38" text-anchor="middle">MOBILE</text>
+                            <path d="M-6 -10 H6 V10 H-6 Z" stroke="var(--accent-green)" stroke-width="1.5" fill="none" />
+                        </g>
+                    </svg>
                 </div>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <a href="#about">
-                <i class="fas fa-chevron-down"></i>
-            </a>
         </div>
     </section>
 
@@ -157,43 +176,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="about-visual">
-                        <div class="phone-mockup" style="max-width: 300px; margin: 0 auto;">
-                            <div class="phone-screen-mockup">
-                                <div class="app-screen-header" style="padding: 40px 20px 30px;">
-                                    <h2 style="font-size: 1.5rem;">About</h2>
-                                    <p style="font-size: 0.875rem;">Mobile Developer</p>
-                                </div>
-                                <div class="app-screen-content">
-                                    <div class="app-card" style="margin-bottom: 1rem; padding: 1.5rem;">
-                                        <div class="app-card-header">
-                                            <div class="app-card-icon"
-                                                style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
-                                                <i class="fas fa-briefcase"></i>
-                                            </div>
-                                            <div>
-                                                <div class="app-card-title" style="font-size: 1.125rem;">4+ Years</div>
-                                                <div class="app-card-subtitle">Experience</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="app-card" style="margin-bottom: 1rem; padding: 1.5rem;">
-                                        <div class="app-card-header">
-                                            <div class="app-card-icon"
-                                                style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
-                                                <i class="fas fa-project-diagram"></i>
-                                            </div>
-                                            <div>
-                                                <div class="app-card-title" style="font-size: 1.125rem;">20+ Projects
-                                                </div>
-                                                <div class="app-card-subtitle">Completed</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Right content layout placeholder/empty for elegant balance -->
+                    <div></div>
                 </div>
             </div>
         </div>
@@ -245,362 +229,206 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <!-- Projects Section: "The Device Simulator" -->
+    <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="skill-icon">
-                        <i class="fab fa-flutter"></i>
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="simulator-wrapper">
+                <!-- Left Project Tabs Panel -->
+                <div class="sim-menu-panel">
+                    <div class="sim-tab active" data-project="goal">
+                        <div class="sim-tab-icon"><i class="fas fa-bullseye" style="color: var(--primary-color);"></i></div>
+                        <div>
+                            <div class="sim-tab-title">Goal</div>
+                            <div class="sim-tab-sub">UHNI Fintech App</div>
+                        </div>
                     </div>
-                    <h3>Mobile Development</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">Flutter</span>
-                        <span class="skill-tag">Dart</span>
-                        <span class="skill-tag">Android</span>
-                        <span class="skill-tag">iOS</span>
-                        <span class="skill-tag">Core Java</span>
-                        <span class="skill-tag">Kotlin</span>
-                        <span class="skill-tag">SwiftUI</span>
-                        <span class="skill-tag">Jetpack Compose</span>
-                        <span class="skill-tag">BLE</span>
+                    <div class="sim-tab" data-project="mstock">
+                        <div class="sim-tab-icon"><i class="fas fa-chart-line" style="color: var(--accent-green);"></i></div>
+                        <div>
+                            <div class="sim-tab-title">m Stock</div>
+                            <div class="sim-tab-sub">Trading Platform</div>
+                        </div>
+                    </div>
+                    <div class="sim-tab" data-project="bounz">
+                        <div class="sim-tab-icon"><i class="fas fa-gift" style="color: var(--accent-orange);"></i></div>
+                        <div>
+                            <div class="sim-tab-title">Bounz Rewards</div>
+                            <div class="sim-tab-sub">Dubai Loyalty Portal</div>
+                        </div>
+                    </div>
+                    <div class="sim-tab" data-project="happierwork">
+                        <div class="sim-tab-icon"><i class="fas fa-briefcase" style="color: var(--accent-purple);"></i></div>
+                        <div>
+                            <div class="sim-tab-title">Happierwork</div>
+                            <div class="sim-tab-sub">Enterprise HRMS</div>
+                        </div>
+                    </div>
+                    <div class="sim-tab" data-project="ecommerce">
+                        <div class="sim-tab-icon"><i class="fas fa-shopping-cart" style="color: var(--primary-light);"></i></div>
+                        <div>
+                            <div class="sim-tab-title">E-com Template</div>
+                            <div class="sim-tab-sub">Hexagonal Architecture</div>
+                        </div>
+                    </div>
+                    <div class="sim-tab" data-project="uniontalk">
+                        <div class="sim-tab-icon"><i class="fas fa-shield-alt" style="color: #ef4444;"></i></div>
+                        <div>
+                            <div class="sim-tab-title">Union Talk</div>
+                            <div class="sim-tab-sub">Security (VAPT) Rebuild</div>
+                        </div>
+                    </div>
+                    <div class="sim-tab" data-project="wildfit">
+                        <div class="sim-tab-icon"><i class="fas fa-dumbbell" style="color: var(--primary-color);"></i></div>
+                        <div>
+                            <div class="sim-tab-title">Wildfit</div>
+                            <div class="sim-tab-sub">Client App</div>
+                        </div>
+                    </div>
+                    <div class="sim-tab" data-project="wildfittribe">
+                        <div class="sim-tab-icon"><i class="fas fa-users-cog" style="color: var(--accent-green);"></i></div>
+                        <div>
+                            <div class="sim-tab-title">Wildfit Tribe</div>
+                            <div class="sim-tab-sub">Trainer Application</div>
+                        </div>
+                    </div>
+                    <div class="sim-tab" data-project="aplivaaastu">
+                        <div class="sim-tab-icon"><i class="fas fa-building" style="color: var(--accent-orange);"></i></div>
+                        <div>
+                            <div class="sim-tab-title">ApliVaastu</div>
+                            <div class="sim-tab-sub">PropTech Platform</div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <div class="skill-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>State Management & Architecture</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">BLoC</span>
-                        <span class="skill-tag">Riverpod</span>
-                        <span class="skill-tag">Provider</span>
-                        <span class="skill-tag">GetX</span>
-                        <span class="skill-tag">Clean Architecture</span>
-                        <span class="skill-tag">Hexagonal Architecture</span>
-                        <span class="skill-tag">MVVM</span>
-                        <span class="skill-tag">MVC</span>
-                        <span class="skill-tag">MVP</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>Backend & Services</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">Firebase</span>
-                        <span class="skill-tag">Serverpod</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">RESTful APIs</span>
-                        <span class="skill-tag">WebSocket</span>
-                        <span class="skill-tag">JSON</span>
-                        <span class="skill-tag">Payment Gateway</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Tools & Technologies</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Android Studio</span>
-                        <span class="skill-tag">XCode</span>
-                        <span class="skill-tag">Unit Testing</span>
-                        <span class="skill-tag">Integration Testing</span>
-                        <span class="skill-tag">Third-party SDK Integration</span>
-                        <span class="skill-tag">Accessibility</span>
-                        <span class="skill-tag">Generative AI</span>
-                        <span class="skill-tag">Gemini AI</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="skill-icon">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <h3>IoT & Embedded Systems</h3>
-                    <div class="skill-items">
-                        <span class="skill-tag">BLE</span>
-                        <span class="skill-tag">Bluetooth Low Energy</span>
-                        <span class="skill-tag">Arduino</span>
-                        <span class="skill-tag">Raspberry Pi</span>
-                        <span class="skill-tag">MQTT</span>
-                        <span class="skill-tag">IoT Protocols</span>
-                        <span class="skill-tag">Sensors Integration</span>
-                        <span class="skill-tag">Embedded Systems</span>
-                        <span class="skill-tag">IoT Cloud Platforms</span>
+
+                <!-- Right Phone Simulator Mockup Frame -->
+                <div class="sim-phone-container">
+                    <div class="phone-mockup-frame">
+                        <div class="phone-dynamic-island"></div>
+                        <!-- Boot Overlay Loader -->
+                        <div class="phone-boot-overlay" id="simBoot">
+                            <div class="boot-matrix-loader"></div>
+                            <div class="boot-text">SYNCING SOURCE CODE...</div>
+                        </div>
+                        <!-- Screen Contents -->
+                        <div class="phone-inner-screen" id="simScreen">
+                            <div class="sim-card-content">
+                                <div class="sim-card-header">
+                                    <div class="sim-card-icon">
+                                        <i id="simAppIcon" class="fas fa-bullseye sim-card-icon-inner"></i>
+                                    </div>
+                                    <div class="sim-card-details">
+                                        <h3 id="simAppName">Goal - Financial Goal App</h3>
+                                        <p id="simAppSub">Fintech App for UHNI</p>
+                                    </div>
+                                </div>
+                                <div id="simAppDate" class="sim-card-date">March 2025</div>
+                                <p id="simAppDesc" class="sim-card-desc">
+                                    Developed a sophisticated financial goal application specifically targeted for Ultra High Net
+                                    Worth Individuals (UHNI). Designed intuitive UI with fluid animations, implemented quick
+                                    action features, and conducted thorough unit testing to ensure stability and reliability.
+                                </p>
+                                <div id="simAppTags" class="sim-card-tags">
+                                    <span class="sim-tag">Flutter</span>
+                                    <span class="sim-tag">Fintech</span>
+                                    <span class="sim-tag">Animations</span>
+                                    <span class="sim-tag">Unit Testing</span>
+                                </div>
+                                <div class="sim-buttons">
+                                    <a href="https://play.google.com/store/apps/details?id=com.tfo.financialgoal" target="_blank" rel="noopener noreferrer" class="sim-btn" id="simPlayBtn">
+                                        <i class="fab fa-google-play"></i> Play Store
+                                    </a>
+                                    <a href="https://apps.apple.com/us/app/financial-goal/id6739766063" target="_blank" rel="noopener noreferrer" class="sim-btn" id="simAppStoreBtn">
+                                        <i class="fab fa-apple"></i> App Store
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <!-- Skills Section: "The Circuit Board" -->
+    <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://play.google.com/store/apps/details?id=com.tfo.financialgoal"
-                                    target="_blank" rel="noopener noreferrer" class="project-link"
-                                    aria-label="View Project">
-                                    <i class="fab fa-google-play"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-placeholder">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="circuit-board-container">
+                <!-- SVG Circuit Board representation -->
+                <svg id="circuitSvg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Connections -->
+                    <path d="M 50 100 L 200 200" class="circuit-path" data-from="power" />
+                    <path d="M 350 100 L 200 200" class="circuit-path" data-from="micro" />
+                    <path d="M 50 300 L 200 200" class="circuit-path" data-from="peripherals" />
+                    <path d="M 350 300 L 200 200" class="circuit-path" data-from="tools" />
+                    
+                    <!-- Nodes -->
+                    <!-- Central Core node -->
+                    <g class="circuit-node active" data-node="micro">
+                        <circle cx="200" cy="200" r="35" />
+                        <text x="200" y="204" text-anchor="middle" font-size="10" font-family="monospace" font-weight="bold" fill="var(--text-primary)">MICRO</text>
+                    </g>
+                    <!-- Backend Power Node -->
+                    <g class="circuit-node" data-node="power">
+                        <circle cx="50" cy="100" r="28" />
+                        <text x="50" y="104" text-anchor="middle" font-size="9" font-family="monospace" font-weight="bold" fill="var(--text-primary)">POWER</text>
+                    </g>
+                    <!-- Peripherals Node -->
+                    <g class="circuit-node" data-node="peripherals">
+                        <circle cx="50" cy="300" r="28" />
+                        <text x="50" y="304" text-anchor="middle" font-size="9" font-family="monospace" font-weight="bold" fill="var(--text-primary)">DEVICE</text>
+                    </g>
+                    <!-- Bus Matrix / Tools Node -->
+                    <g class="circuit-node" data-node="tools">
+                        <circle cx="350" cy="300" r="28" />
+                        <text x="350" y="304" text-anchor="middle" font-size="9" font-family="monospace" font-weight="bold" fill="var(--text-primary)">BUS</text>
+                    </g>
+                </svg>
+
+                <!-- Interactive details panel -->
+                <div class="active-skills-display">
+                    <h3 id="activeNodeName"><i class="fas fa-microchip"></i> Microprocessor: Core Logic</h3>
+                    <ul class="active-skills-list" id="activeNodeSkillList">
+                        <li class="active-skill-item"><i class="fas fa-microchip skill-chip-icon"></i> Flutter</li>
+                        <li class="active-skill-item"><i class="fas fa-microchip skill-chip-icon"></i> Dart</li>
+                        <li class="active-skill-item"><i class="fas fa-microchip skill-chip-icon"></i> BLoC</li>
+                        <li class="active-skill-item"><i class="fas fa-microchip skill-chip-icon"></i> Riverpod</li>
+                        <li class="active-skill-item"><i class="fas fa-microchip skill-chip-icon"></i> Provider</li>
+                        <li class="active-skill-item"><i class="fas fa-microchip skill-chip-icon"></i> GetX</li>
+                        <li class="active-skill-item"><i class="fas fa-microchip skill-chip-icon"></i> Clean Architecture</li>
+                        <li class="active-skill-item"><i class="fas fa-microchip skill-chip-icon"></i> Hexagonal Architecture</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section: "The Smart Switch" -->
+    <section id="resume" class="resume-download-section">
+        <div class="container">
+            <h2 class="section-title">Resume</h2>
+            <div class="smart-switch-card">
+                <h3>Request Physical Copy</h3>
+                <p>Toggle the power grids below to initiate a synchronized print command sending the PDF download request sequence.</p>
+                <div class="switch-3d-wrapper">
+                    <label class="switch-label-3d">
+                        <input type="checkbox" id="resumeSwitch">
+                        <span class="switch-slider-3d"></span>
+                    </label>
+                </div>
+                <!-- Printer Simulator Container -->
+                <div class="printer-system">
+                    <div class="printer-device">
+                        <div class="printer-light" id="printerIndicator"></div>
                     </div>
-                    <div class="project-content">
-                        <h3>Goal - Financial Goal App</h3>
-                        <p class="project-date">March 2025</p>
-                        <p>Developed a sophisticated financial goal application specifically targeted for Ultra High Net
-                            Worth Individuals (UHNI). Designed intuitive UI with fluid animations, implemented quick
-                            action features, and conducted thorough unit testing to ensure stability and reliability.
-                        </p>
-                        <div class="project-tags">
-                            <span>Flutter</span>
-                            <span>Fintech</span>
-                            <span>Animations</span>
-                            <span>Unit Testing</span>
-                        </div>
+                    <div class="printer-paper" id="printerPaper">
+                        <div class="paper-line"></div>
+                        <div class="paper-line"></div>
+                        <div class="paper-line"></div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://play.google.com/store/apps/details?id=com.rs.mirae" target="_blank"
-                                    rel="noopener noreferrer" class="project-link" aria-label="View Project">
-                                    <i class="fab fa-google-play"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-placeholder">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>m Stock</h3>
-                        <p class="project-date">Apr 2024 - Oct 2024</p>
-                        <p>Orchestrated UI and API integrations, executed KYC features implementation, integrated
-                            third-party packages, and spearheaded application optimization resulting in 40% increase in
-                            overall system performance.</p>
-                        <div class="project-tags">
-                            <span>Flutter</span>
-                            <span>API Integration</span>
-                            <span>KYC</span>
-                            <span>Performance Optimization</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://play.google.com/store/apps/details?id=com.citypoints.bounzrewards"
-                                    target="_blank" rel="noopener noreferrer" class="project-link"
-                                    aria-label="View Project">
-                                    <i class="fab fa-google-play"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-placeholder">
-                            <i class="fas fa-gift"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Bounz Rewards</h3>
-                        <p class="project-date">Mar 2023 - Oct 2023</p>
-                        <p>Established a fintech loyalty points application for users in Dubai. Implemented Firebase
-                            Dynamic Links, deep linking, push notifications, live location tracking, app engagement
-                            tracking, analytics, and dynamic UI with integrated games.</p>
-                        <div class="project-tags">
-                            <span>Flutter</span>
-                            <span>Firebase</span>
-                            <span>Deep Linking</span>
-                            <span>Location Tracking</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://play.google.com/store/apps/details?id=com.happierwork.v2"
-                                    target="_blank" rel="noopener noreferrer" class="project-link"
-                                    aria-label="View Project">
-                                    <i class="fab fa-google-play"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-placeholder">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Happierwork - HRMS</h3>
-                        <p class="project-date">Feb 2022 - Feb 2023</p>
-                        <p>HRMS application for enterprises to manage employee data throughout their lifecycle. Features
-                            include real-time location tracking, geofencing technology, dynamic server-driven UI,
-                            stream-based state management, and intuitive responsive interface.</p>
-                        <div class="project-tags">
-                            <span>Flutter</span>
-                            <span>HRMS</span>
-                            <span>Geofencing</span>
-                            <span>Location Tracking</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" aria-label="View Project">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-placeholder">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>E-commerce Template</h3>
-                        <p class="project-date">Jan 2024 - Apr 2024</p>
-                        <p>Created a template for E-commerce projects utilizing hexagonal clean architecture to ensure
-                            loose coupling of dependencies. Developers can add or remove any dependency without changing
-                            the core code, making it maintainable for large projects.</p>
-                        <div class="project-tags">
-                            <span>Flutter</span>
-                            <span>Hexagonal Architecture</span>
-                            <span>Clean Architecture</span>
-                            <span>Template</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" aria-label="View Project">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-placeholder">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Union Talk</h3>
-                        <p class="project-date">Jan 2024</p>
-                        <p>Resolved vulnerability issues identified by VAPT team, enhanced application security through
-                            code obfuscation, implemented device root status checks, and secured the application by
-                            concealing open window information when app is in background.</p>
-                        <div class="project-tags">
-                            <span>Flutter</span>
-                            <span>Security</span>
-                            <span>Code Obfuscation</span>
-                            <span>VAPT</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" aria-label="View Project">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-placeholder">
-                            <i class="fas fa-dumbbell"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Wildfit - Client App</h3>
-                        <p class="project-date">Health & Fitness</p>
-                        <p>Client-facing application for Wildfit studio clients to track their workouts progress,
-                            workout plans, nutrition plans and connect with expert team of performance coaches and
-                            nutritionists. Provides comprehensive fitness tracking and personalized coaching experience.
-                        </p>
-                        <div class="project-tags">
-                            <span>Flutter</span>
-                            <span>Health & Fitness</span>
-                            <span>Progress Tracking</span>
-                            <span>Nutrition Planning</span>
-                            <span>Coaching Platform</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" aria-label="View Project">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-placeholder">
-                            <i class="fas fa-users-cog"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Wildfit Tribe - Employee App</h3>
-                        <p class="project-date">Health & Fitness</p>
-                        <p>Internal application for Wildfit studio employees to manage their members, assign workout
-                            plans, nutrition plans, track their fitness goals and progress, and connect with them for
-                            any issues. Streamlines studio operations and member management.</p>
-                        <div class="project-tags">
-                            <span>Flutter</span>
-                            <span>Employee Management</span>
-                            <span>Member Management</span>
-                            <span>Workout Planning</span>
-                            <span>Progress Tracking</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" aria-label="View Project">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-placeholder">
-                            <i class="fas fa-building"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>ApliVaastu - Real Estate Platform</h3>
-                        <p class="project-date">PropTech</p>
-                        <p>Comprehensive real estate platform enabling property listings, discovery, and lead
-                            generation. Features include advanced property search with filters, interactive map
-                            integration, property details with image galleries, lead management, admin panel for
-                            property approval, and user authentication. Built with Flutter (Clean Architecture + BLoC)
-                            and Node.js backend.</p>
-                        <div class="project-tags">
-                            <span>Flutter</span>
-                            <span>Clean Architecture</span>
-                            <span>BLoC</span>
-                            <span>Node.js</span>
-                            <span>MongoDB</span>
-                            <span>Google Maps</span>
-                        </div>
-                    </div>
-                </div>
+                <span class="switch-status-text" id="switchStatusText">Resume: STANDBY</span>
             </div>
         </div>
     </section>
