@@ -151,7 +151,8 @@ const projectData = {
         playStore: "https://play.google.com/store/apps/details?id=com.tfo.financialgoal",
         appStore: "https://apps.apple.com/us/app/financial-goal/id6739766063",
         icon: "fa-bullseye",
-        color: "linear-gradient(135deg, #1e1b4b 0%, #312e81 100%)"
+        color: "linear-gradient(135deg, #090e1a 0%, #d4af37 100%)",
+        dateColor: "#d4af37"
     },
     mstock: {
         title: "m Stock by Mirae Asset",
@@ -162,7 +163,8 @@ const projectData = {
         playStore: "https://play.google.com/store/apps/details?id=com.rs.mirae",
         appStore: "https://apps.apple.com/us/app/mstock-by-mirae-assets-ipo-mf/id1577155974",
         icon: "fa-chart-line",
-        color: "linear-gradient(135deg, #064e3b 0%, #065f46 100%)"
+        color: "linear-gradient(135deg, #0a192f 0%, #f57c00 100%)",
+        dateColor: "#f57c00"
     },
     bounz: {
         title: "Bounz Rewards",
@@ -173,7 +175,8 @@ const projectData = {
         playStore: "https://play.google.com/store/search?q=bounz",
         appStore: "https://apps.apple.com/us/app/bounz-rewards-loyalty-app/id1573809550",
         icon: "fa-gift",
-        color: "linear-gradient(135deg, #7c2d12 0%, #9a3412 100%)"
+        color: "linear-gradient(135deg, #1f2937 0%, #f97316 100%)",
+        dateColor: "#f97316"
     },
     happierwork: {
         title: "Happierwork - HRMS",
@@ -184,7 +187,8 @@ const projectData = {
         playStore: "https://play.google.com/store/apps/details?id=com.happierwork.v2",
         appStore: "https://apps.apple.com/us/app/happierwork/id6462845228",
         icon: "fa-briefcase",
-        color: "linear-gradient(135deg, #581c87 0%, #6b21a8 100%)"
+        color: "#faf6f0",
+        lightTheme: true
     },
     ecommerce: {
         title: "E-commerce Template",
@@ -217,7 +221,8 @@ const projectData = {
         playStore: "https://play.google.com/store/apps/details?id=me.wildfit.app",
         appStore: "https://apps.apple.com/us/app/wildfit/id6756062923",
         icon: "fa-dumbbell",
-        color: "linear-gradient(135deg, #0369a1 0%, #0284c7 100%)"
+        color: "#111111",
+        dateColor: "#72bf44"
     },
     wildfittribe: {
         title: "Wildfit Tribe",
@@ -228,7 +233,8 @@ const projectData = {
         playStore: "https://play.google.com/store/apps/details?id=me.wildfit.tribe",
         appStore: "https://apps.apple.com/us/app/wildfit-tribe/id6756008262",
         icon: "fa-users-cog",
-        color: "linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%)"
+        color: "#111111",
+        dateColor: "#72bf44"
     },
     aplivaaastu: {
         title: "ApliVaastu",
@@ -242,6 +248,7 @@ const projectData = {
         color: "linear-gradient(135deg, #115e59 0%, #134e4a 100%)"
     }
 };
+
 
 const simTabs = document.querySelectorAll('.sim-tab');
 const simScreen = document.getElementById('simScreen');
@@ -271,6 +278,21 @@ function switchProject(projKey) {
         simAppSub.textContent = data.subtitle;
         simAppDate.textContent = data.date;
         simAppDesc.textContent = data.desc;
+
+        // Apply Dynamic Theme Styling
+        if (data.lightTheme) {
+            simScreen.style.color = '#1f2937';
+            simAppName.style.color = '#1f2937';
+            simAppSub.style.color = '#4b5563';
+            simAppDate.style.color = '#eab308'; // soft brand yellow/orange
+            simAppDesc.style.color = '#374151';
+        } else {
+            simScreen.style.color = 'white';
+            simAppName.style.color = 'white';
+            simAppSub.style.color = 'rgba(255, 255, 255, 0.8)';
+            simAppDate.style.color = data.dateColor || 'var(--accent-green)';
+            simAppDesc.style.color = 'rgba(255, 255, 255, 0.9)';
+        }
         
         // Render Tags
         simAppTags.innerHTML = '';
@@ -278,10 +300,32 @@ function switchProject(projKey) {
             const span = document.createElement('span');
             span.className = 'sim-tag';
             span.textContent = tag;
+            if (data.lightTheme) {
+                span.style.background = 'rgba(0, 0, 0, 0.05)';
+                span.style.color = '#4b5563';
+                span.style.border = '1px solid rgba(0, 0, 0, 0.1)';
+            } else {
+                span.style.background = 'rgba(255, 255, 255, 0.15)';
+                span.style.color = 'white';
+                span.style.border = 'none';
+            }
             simAppTags.appendChild(span);
         });
 
         // Set Link Buttons
+        const buttons = [simPlayBtn, simAppStoreBtn];
+        buttons.forEach(btn => {
+            if (data.lightTheme) {
+                btn.style.background = 'rgba(0, 0, 0, 0.08)';
+                btn.style.color = '#1f2937';
+                btn.style.border = '1px solid rgba(0, 0, 0, 0.1)';
+            } else {
+                btn.style.background = 'rgba(255, 255, 255, 0.15)';
+                btn.style.color = 'white';
+                btn.style.border = 'none';
+            }
+        });
+
         if (data.playStore && data.playStore !== '#') {
             simPlayBtn.href = data.playStore;
             simPlayBtn.style.display = 'inline-flex';
@@ -302,6 +346,7 @@ function switchProject(projKey) {
         }, 300);
     }, 400);
 }
+
 
 simTabs.forEach(tab => {
     tab.addEventListener('click', () => {
