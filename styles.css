@@ -1580,3 +1580,72 @@ body.light-theme .footer {
         padding: 2rem 1.5rem;
     }
 }
+
+/* About Terminal Component */
+.about-terminal {
+    background: #090e18;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg), 0 0 20px rgba(0, 212, 255, 0.05);
+    overflow: hidden;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.terminal-header {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--navbar-border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.terminal-dot.red { background: #ef4444; }
+.terminal-dot.yellow { background: #f59e0b; }
+.terminal-dot.green { background: #10b981; }
+
+.terminal-title {
+    color: var(--text-light);
+    font-size: 0.75rem;
+    margin-left: 10px;
+    font-weight: 500;
+}
+
+.terminal-body {
+    padding: 20px;
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+.term-command {
+    color: var(--accent-green);
+    margin-bottom: 8px;
+}
+
+.term-text {
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.term-label {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.term-text.success {
+    color: var(--accent-green);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}

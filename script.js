@@ -522,17 +522,17 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Stats Counter Animation
-function animateCounter(element, target, duration = 1800) {
+function animateCounter(element, target, suffix = '', duration = 1800) {
     let start = 0;
     const increment = target / (duration / 16);
 
     const timer = setInterval(() => {
         start += increment;
         if (start >= target) {
-            element.textContent = target + '+';
+            element.textContent = target + suffix;
             clearInterval(timer);
         } else {
-            element.textContent = Math.floor(start) + '+';
+            element.textContent = Math.floor(start) + suffix;
         }
     }, 16);
 }
@@ -544,10 +544,11 @@ const statsObserver = new IntersectionObserver((entries) => {
             const statNumbers = entry.target.querySelectorAll('.stat-card h3');
             statNumbers.forEach(stat => {
                 const text = stat.textContent;
+                const suffix = text.includes('%') ? '%' : '+';
                 const number = parseInt(text.replace(/\D/g, ''));
                 if (number && !stat.dataset.animated) {
                     stat.dataset.animated = 'true';
-                    animateCounter(stat, number);
+                    animateCounter(stat, number, suffix);
                 }
             });
             statsObserver.unobserve(entry.target);
