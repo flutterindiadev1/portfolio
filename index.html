@@ -359,8 +359,8 @@
                 <svg id="circuitSvg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <!-- Connections -->
                     <path d="M 50 100 L 200 200" class="circuit-path" data-from="power" />
-                    <path d="M 350 100 L 200 200" class="circuit-path" data-from="micro" />
-                    <path d="M 50 300 L 200 200" class="circuit-path" data-from="peripherals" />
+                    <path d="M 350 100 L 200 200" class="circuit-path" data-from="peripherals" />
+                    <path d="M 50 300 L 200 200" class="circuit-path" data-from="iot" />
                     <path d="M 350 300 L 200 200" class="circuit-path" data-from="tools" />
                     
                     <!-- Nodes -->
@@ -374,10 +374,15 @@
                         <circle cx="50" cy="100" r="28" />
                         <text x="50" y="104" text-anchor="middle" font-size="9" font-family="monospace" font-weight="bold" fill="var(--text-primary)">POWER</text>
                     </g>
-                    <!-- Peripherals Node -->
+                    <!-- Native Mobile Node -->
                     <g class="circuit-node" data-node="peripherals">
+                        <circle cx="350" cy="100" r="28" />
+                        <text x="350" y="104" text-anchor="middle" font-size="9" font-family="monospace" font-weight="bold" fill="var(--text-primary)">NATIVE</text>
+                    </g>
+                    <!-- IoT / Hardware Node -->
+                    <g class="circuit-node" data-node="iot">
                         <circle cx="50" cy="300" r="28" />
-                        <text x="50" y="304" text-anchor="middle" font-size="9" font-family="monospace" font-weight="bold" fill="var(--text-primary)">DEVICE</text>
+                        <text x="50" y="304" text-anchor="middle" font-size="9" font-family="monospace" font-weight="bold" fill="var(--text-primary)">IoT</text>
                     </g>
                     <!-- Bus Matrix / Tools Node -->
                     <g class="circuit-node" data-node="tools">

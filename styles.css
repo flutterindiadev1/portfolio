@@ -961,16 +961,14 @@ section {
 .circuit-path.pulse {
     stroke: var(--primary-color);
     stroke-width: 3.5px;
-    stroke-dasharray: none;
-    animation: pathRun 1.5s ease-out infinite;
+    stroke-dasharray: 8 8;
+    animation: pathRun 0.8s linear infinite;
+    filter: drop-shadow(0 0 6px var(--primary-color));
 }
 
 @keyframes pathRun {
-    0% {
-        stroke-dashoffset: 200;
-    }
-    100% {
-        stroke-dashoffset: 0;
+    to {
+        stroke-dashoffset: -32;
     }
 }
 

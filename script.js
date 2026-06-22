@@ -328,8 +328,12 @@ const nodeSkills = {
         skills: ["Flutter", "Dart", "BLoC", "Riverpod", "Provider", "GetX", "Clean Architecture", "Hexagonal Architecture", "MVVM"]
     },
     peripherals: {
-        name: "Peripherals: Native & IoT Platforms",
-        skills: ["Native iOS (Swift)", "Native Android (Kotlin)", "BLE (Bluetooth Low Energy)", "ESP32 / Arduino", "MQTT & IoT Protocols", "Sensors Integration", "Raspberry Pi"]
+        name: "Peripherals: Native Mobile Platforms",
+        skills: ["Native iOS (Swift)", "Native Android (Kotlin)", "Core Java", "SwiftUI", "Jetpack Compose"]
+    },
+    iot: {
+        name: "Hardware Interface: IoT & Embedded Systems",
+        skills: ["BLE (Bluetooth Low Energy)", "ESP32 / Arduino", "Raspberry Pi", "MQTT & IoT Protocols", "Sensors Integration", "Embedded Systems", "IoT Cloud Platforms"]
     },
     tools: {
         name: "Bus Matrix: System Tools & AI",
